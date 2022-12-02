@@ -11,15 +11,17 @@ const App = () => {
           option from the dropdown
         </p>
 
-        <input
-          type="text"
-          value={''}
-          className="px-2 py-1 rounded-1-md border-2 border-white"
-        />
+        <div className="flex mt-10 md:mt-4">
+          <input
+            type="text"
+            value={''}
+            className="px-2 py-1 rounded-1-md border-2 border-white"
+          />
 
-        <button className="rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer">
-          Search
-        </button>
+          <button className="rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer">
+            Search
+          </button>
+        </div>
       </section>
     </main>
   )
