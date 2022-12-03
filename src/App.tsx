@@ -37,17 +37,18 @@ const App = (): JSX.Element => {
           option from the dropdown
         </p>
 
-        <div className="flex mt-10 md:mt-4">
+        <div className="relative flex mt-10 md:mt-4">
           <input
             type="text"
             value={term}
             className="px-2 py-1 rounded-1-md border-2 border-white"
             onChange={onInputChange}
           />
-
-          {options.map((option: { name: string }) => (
-            <p>{option.name}</p>
-          ))}
+          <ul className="absolute top-9 bg-white ml-1 rounded-b-md">
+            {options.map((option: { name: string }) => (
+              <p>{option.name}</p>
+            ))}
+          </ul>
 
           <button className="rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer">
             Search
