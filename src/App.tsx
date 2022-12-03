@@ -1,9 +1,10 @@
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, useEffect } from 'react'
 
 import { optionType } from './types'
 
 const App = (): JSX.Element => {
   const [term, setTerm] = useState<string>('')
+  const [city, setCity] = useState<optionType | null>(null)
   const [options, setOptions] = useState<[]>([])
 
   const getSearchOptions = (value: string) => {
@@ -26,13 +27,21 @@ const App = (): JSX.Element => {
   }
 
   const onOptionSelect = (option: optionType) => {
-    console.log(option.name)
-    // do something
+    setCity(option)
 
     fetch(
-      `https://api.openweathermap.org/data/3.0/onecall?lat=${option.lat}&lon=${option.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${option.lat}&lon=${option.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
     )
+      .then((res) => res.json())
+      .then((data) => console.log({ data }))
   }
+
+  useEffect(() => {
+    if (city) {
+      setTerm(city.name)
+      setOptions([])
+    }
+  }, [city])
 
   // http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
 
