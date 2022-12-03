@@ -30,7 +30,7 @@ const App = (): JSX.Element => {
     // do something
 
     fetch(
-      `https://api.openweathermap.org/data/3.0/onecall?lat=${option.lat}&lon=${option.lon}&appid=${process.env.REACT_APP_API_KEY}`
+      `https://api.openweathermap.org/data/3.0/onecall?lat=${option.lat}&lon=${option.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
     )
   }
 
