@@ -26,7 +26,12 @@ const App = (): JSX.Element => {
   }
 
   const onOptionSelect = (option: optionType) => {
+    console.log(option.name)
     // do something
+
+    fetch(
+      `https://api.openweathermap.org/data/3.0/onecall?lat=${option.lat}&lon=${option.lon}&appid=${process.env.REACT_APP_API_KEY}`
+    )
   }
 
   // http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
