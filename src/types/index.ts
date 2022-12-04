@@ -8,6 +8,8 @@ export type optionType = {
 export type forecastType = {
   name: string
   country: string
+  sunrise: number
+  sunset: number
   list: [
     {
       dt: number
@@ -38,6 +40,4 @@ export type forecastType = {
       visibility: number
     }
   ]
-  sunrise: number
-  sunset: number
 }
