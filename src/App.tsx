@@ -26,14 +26,22 @@ const App = (): JSX.Element => {
     getSearchOptions(value)
   }
 
-  const onOptionSelect = (option: optionType) => {
-    setCity(option)
-
+  const getForecast = (city: optionType) => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${option.lat}&lon=${option.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
     )
       .then((res) => res.json())
       .then((data) => console.log({ data }))
+  }
+
+  const onSubmit = () => {
+    if (!city) return
+
+    getForecast(city)
+  }
+
+  const onOptionSelect = (option: optionType) => {
+    setCity(option)
   }
 
   useEffect(() => {
@@ -77,7 +85,10 @@ const App = (): JSX.Element => {
             ))}
           </ul>
 
-          <button className="rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer">
+          <button
+            className="rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer"
+            onClick={onSubmit}
+          >
             Search
           </button>
         </div>
