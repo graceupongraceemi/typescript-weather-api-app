@@ -26,6 +26,13 @@ const Forecast = ({ data }: Props): JSX.Element => {
           <h1 className="text-4xl font-extrabold">
             <Degree temp={Math.round(today.main.temp)} />
           </h1>
+          <p className="text-sm">
+            {today.weather[0].main} {today.weather[0].description}
+          </p>
+          <p className="text-sm">
+            H: <Degree temp={Math.ceil(today.main.temp_max)} />
+            L: <Degree temp={Math.floor(today.main.temp_min)} />
+          </p>
         </section>
       </div>
     </div>
