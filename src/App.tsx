@@ -1,4 +1,6 @@
 import Search from './components/Search'
+import Forecast from './components/Forecast'
+
 import useForecast from './hooks/useForecast'
 
 const App = (): JSX.Element => {
@@ -11,8 +13,8 @@ const App = (): JSX.Element => {
      to-lime-400 h-[100vh] w-full"
     >
       {forecast ? (
-        // 'we have a forecast'
-        forecast.sunrise
+        // forecast.sunrise
+        <Forecast data={forecast} />
       ) : (
         <Search
           term={term}
