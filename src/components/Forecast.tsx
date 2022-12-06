@@ -1,6 +1,6 @@
 import Sunrise from './Icons/Sunrise'
 import Sunset from './Icons/Sunset'
-// import Tile from './Tile'
+import Tile from './Tile'
 
 import { forecastType } from '../types'
 import { getSunTime } from '../helpers'
@@ -65,6 +65,8 @@ const Forecast = ({ data }: Props): JSX.Element => {
           <div className="w-[140px] text-xs font-bold flex flex-col items-enter bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5">
             <Sunset /> <span className="mt-2">{getSunTime(data.sunset)}</span>
           </div>
+
+          <Tile icon="wind" title="wind" />
         </section>
       </div>
     </div>
