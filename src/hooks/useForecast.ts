@@ -1,6 +1,8 @@
 import { useState, useEffect, ChangeEvent } from 'react'
 
-import { optionType, forecastType } from '../types'
+import { optionType, forecastType } from './../types/index'
+
+// const BASE_URL = 'http://api.openweathermap.org'
 
 const useForecast = () => {
   const [term, setTerm] = useState<string>('')
@@ -14,18 +16,21 @@ const useForecast = () => {
       `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
         process.env.REACT_APP_API_KEY
       }`
+
+      // ***** replaced the below with the above api url
+      // `${BASE_URL}/geo/1.0/direct?q=${term.trim()}&limit=5&lang=en&appid=${
+      //   process.env.REACT_APP_API_KEY
+      // }`
     )
       .then((res) => res.json())
       .then((data) => setOptions(data))
+      .catch((e) => console.log({ e }))
   }
 
-  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.trim()
-    setTerm(value)
+  const onSubmit = () => {
+    if (!city) return
 
-    if (value === '') return
-
-    getSearchOptions(value)
+    getForecast(city)
   }
 
   const getForecast = (city: optionType) => {
@@ -43,14 +48,17 @@ const useForecast = () => {
       .catch((e) => console.log({ e }))
   }
 
-  const onSubmit = () => {
-    if (!city) return
-
-    getForecast(city)
-  }
-
   const onOptionSelect = (option: optionType) => {
     setCity(option)
+  }
+
+  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.trim()
+    setTerm(e.target.value)
+
+    if (value !== '') {
+      getSearchOptions(value)
+    }
   }
 
   useEffect(() => {

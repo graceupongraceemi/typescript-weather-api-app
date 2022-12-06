@@ -1,4 +1,4 @@
-// import Degree from './Degree'
+import Degree from './Degree'
 import Sunrise from './Icons/Sunrise'
 import Sunset from './Icons/Sunset'
 import Tile from './Tile'
@@ -18,12 +18,12 @@ type Props = {
   data: forecastType
 }
 
-const Degree = ({ temp }: { temp: number }): JSX.Element => (
-  <span>
-    {temp}
-    <sup>o</sup>
-  </span>
-)
+// const Degree = ({ temp }: { temp: number }): JSX.Element => (
+//   <span>
+//     {temp}
+//     <sup>o</sup>
+//   </span>
+// )
 
 const Forecast = ({ data }: Props): JSX.Element => {
   const today = data.list[0]
