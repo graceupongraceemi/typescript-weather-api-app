@@ -58,7 +58,7 @@ const Forecast = ({ data }: Props): JSX.Element => {
           ))}
         </section>
 
-        <section className="flex justify-between text-zinc-700">
+        <section className="flex flex-wrap justify-between text-zinc-700">
           <div className="w-[140px] text-xs font-bold flex flex-col items-enter bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5">
             <Sunrise /> <span className="mt-2">{getSunTime(data.sunrise)}</span>
           </div>
