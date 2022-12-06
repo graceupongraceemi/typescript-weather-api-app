@@ -44,16 +44,3 @@ const Search = ({
 )
 
 export default Search
-
-// : JSX.Element => {
-//   return (
-//     <main className="flex justify-center items-center bg-gradient-to-br from-sky-400 via-rose-400 to-lime-400 h-[100vh] w-full">
-//       <Search
-//         term={term}
-//         options={options}
-//         onInputChange={onInputChange}
-//         onOptionSelect={onOptionSelect}
-//         onSubmit={onSubmit}
-//       />
-//     </main>
-//   )

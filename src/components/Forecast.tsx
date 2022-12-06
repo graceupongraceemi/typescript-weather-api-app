@@ -18,6 +18,7 @@ type Props = {
   data: forecastType
 }
 
+// The below moved to Degree component
 // const Degree = ({ temp }: { temp: number }): JSX.Element => (
 //   <span>
 //     {temp}
